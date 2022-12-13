@@ -1,0 +1,49 @@
+{% extends 'core3.html' %}
+
+{% block title %}
+<title>Course</title>
+{% endblock title %}
+
+{% block content %}
+
+<div class="teacher-main_container">
+    <div class = "course-container">
+        <div class="title">Courses</div>
+        <div class = "course-content">
+            {% for course in courses %}
+            <div class = "sdetail">
+                <div class = "space-course">
+                <div>
+                    <span >{{course.title}}</span>
+                    <span>{{course.number}}</span>
+                </div>
+                <span>Credit {{course.credit}}</span>
+                </div>
+                <div class = "space">
+                    <div class="modify-button">
+                        <a class = "" href = "{% url 'modify_course_page' course.id %}" >Modify</a>
+                    </div>
+                    <div class="delete-button">
+                        <a class = "" href = "{% url 'delete_course_page' course.id %}" >Delete</a>
+                    </div>
+                    {%if course.offered %}
+                    <div class = "offered">
+                        <span>Offered</span>
+                    </div>
+                    {% else %}
+                    <div class = "notoffered">
+                        <span>Not Offered</span>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="add-button">
+            <a class = "" href = "{% url 'add_course_page' %}" >Add Course</a>
+        </div>
+</div>
+
+
+{% endblock content %}

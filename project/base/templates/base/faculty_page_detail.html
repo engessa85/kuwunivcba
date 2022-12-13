@@ -1,0 +1,55 @@
+{% extends 'core3.html' %}
+
+{% block title %}
+<title>Faculty details</title>
+{% endblock title %}
+
+{% block content %}
+
+<div class="teacher-main_container">
+    <div class = "course-container">
+        <div class="title">Faculty details</div>
+        <div class = "course-content">
+            {% for user in users %}
+            {% if user.is_superuser != True %}
+            <div class = "sdetail">
+                <div class = "space-course">
+                <span >{{user.username}}</span>
+                <span>{{user.serialNumber}}</span>
+                </div>
+                <div class = "space">
+                    {%if user.teaching %}
+                    <div class = "offered">
+                        <span>teaching</span>
+                    </div>
+                    {% else %}
+                    <div class = "notoffered">
+                        <span>Not teaching</span>
+                    </div>
+                    {% endif %}
+
+                    {%if user.vip %}
+                    <div class = "offered">
+                        <span>VIP</span>
+                    </div>
+                    {% else %}
+                    <div class = "notoffered">
+                        <span>Not VIP</span>
+                    </div>
+                    {% endif %}
+                    {% comment %} <div class = "offered">
+                        <span>{{user.report}} Reports</span>
+                    </div>
+                    <div class="modify-button-admin">
+                        <a class = "" href = "{% url 'faculty_page_modify' user.id %}" >Modify</a>
+                    </div> {% endcomment %}
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}

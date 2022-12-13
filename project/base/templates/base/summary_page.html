@@ -1,0 +1,74 @@
+{% extends 'core2.html' %}
+
+{% block title %}
+<title>Teacher</title>
+{% endblock title %}
+
+{% block content %}
+
+<div class="teacher-main_container">
+    <div class = "teacher-container">
+        <div class="title">Registration Summary</div>
+        <div class = "summary-content">
+            {% for item in model1 %}
+
+            <div class = "sdetail">
+                <span class="first">1st desire</span>
+                <span>{{item.d1}}</span>
+                <span>{{item.d1t1}}</span>
+                <span>{{item.d1t2}}</span>
+                <span>{{item.d1t3}}</span>
+                <span>{{item.day1}}</span>
+            </div>
+
+            <div class = "sdetail">
+                <span class="second">2nd desire</span>
+                <span>{{item.d2}}</span>
+                <span>{{item.d2t1}}</span>
+                <span>{{item.d2t2}}</span>
+                <span>{{item.d2t3}}</span>
+                <span>{{item.day2}}</span>
+            </div>
+
+            <div class = "sdetail">
+                <span class="third">3rd desire</span>
+                <span>{{item.d3}}</span>
+                <span>{{item.d3t1}}</span>
+                <span>{{item.d3t2}}</span>
+                <span>{{item.d3t3}}</span>
+                <span>{{item.day3}}</span>
+            </div>
+
+            <div class = "sdetail">
+                <span class="fourth">4th desire</span>
+                <span>{{item.d4}}</span>
+                <span>{{item.d4t1}}</span>
+                <span>{{item.d4t2}}</span>
+                <span>{{item.d4t3}}</span>
+                <span>{{item.day4}}</span>
+            </div>
+
+            <div class = "sdetail">
+                <span class="fifth">5th desire</span>
+                <span>{{item.d5}}</span>
+                <span>{{item.d5t1}}</span>
+                <span>{{item.d5t2}}</span>
+                <span>{{item.d5t3}}</span>
+                <span>{{item.day5}}</span>
+            </div>
+
+            <div class="summary-button">
+                <a class = "" href = "{% url 'teacher_modify_page' item.id %}">Modify</a>
+                <form method = "POST" action = "">
+                    {% csrf_token %}
+                    <button type = "submit">Email Me</button>
+                </form>
+            </div>
+            
+            {% endfor %}
+
+            
+        </div>
+    </div>
+</div>
+{% endblock content %}

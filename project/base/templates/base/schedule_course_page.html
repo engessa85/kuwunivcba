@@ -1,0 +1,127 @@
+{% extends 'core3.html' %}
+
+{% block title %}
+<title>Schedule</title>
+{% endblock title %}
+
+{% block content %}
+
+<div class="schedule-main-container">
+    <div class = "schedule-container">
+        <div class="title">
+            <a href = "{% url 'schedule_course_page' %}">Course Schedule</a>
+            <a href = "{% url 'schedule_time_page_' %}">Time Schedule</a>
+        </div>
+        
+        <div class = "schedule-content">
+
+        <div class = 'desire'>
+            <span class = 'd1'>1st Desire</span>
+            {% for key,value in d1_user.items %}
+            <div class = "sdetail">
+             <div class = "space-course">
+                <span class = "t">{{key}}</span>
+                <div class = 'filter-name'>
+                    {%for v in value%}
+                        {% if v.user.vip %}
+                        <span class = 'vip'>{{v}} - vip</span>
+                        {% else %}
+                        <span class = 'nvip'>{{v}}</span>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+             </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class = 'desire'>
+            <span class = 'd2'>2nd Desire</span>
+            {% for key,value in d2_user.items %}
+            <div class = "sdetail">
+             <div class = "space-course">
+                <span class = "t" >{{key}}</span>
+                <div class = "filter-name">
+                    {%for v in value%}
+                        {% if v.user.vip %}
+                        <span class = 'vip'>{{v}}- vip</span>
+                        {% else %}
+                        <span class = 'nvip'>{{v}}</span>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+             </div>
+            </div>
+            {% endfor %}
+        </div>
+
+
+        <div class = 'desire'>
+            <span class = 'd3'>3rd Desire</span>
+            {% for key,value in d3_user.items %}
+            <div class = "sdetail">
+                <div class = "space-course">
+                <span class = "t">{{key}}</span>
+                <div class = "filter-name">
+                    {%for v in value%}
+                    {% if v.user.vip %}
+                    <span class = 'vip'>{{v}}- vip</span>
+                    {% else %}
+                    <span class = 'nvip'>{{v}}</span>
+                    {% endif %}
+                {% endfor %}
+                </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+            
+
+
+
+
+
+
+
+
+
+
+
+                {% comment %} <span>
+                    <select>
+                        {% for user in users_d1.0%}
+                        <option>{{user}}</option>
+                        {% endfor %}
+                    </select>
+                </span>
+                <span>
+                    <select>
+                        {% for user in users_d1.1%}
+                        <option>{{user}}</option>
+                        {% endfor %}
+                    </select>
+                </span>
+                <span>
+                    <select>
+                        {% for user in users_d1.2%}
+                        <option>{{user}}</option>
+                        {% endfor %}
+                    </select>
+                </span>
+                </div>
+                <div class = "space">
+                    <div class="modify-button">
+                        <a class = "" href = "" >Modify</a>
+                    </div>
+                    <div class = "offered">
+                        <span>Offered</span>
+                    </div>
+                </div> {% endcomment %}
+            
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}

@@ -1,0 +1,32 @@
+{% extends 'core3.html' %}
+
+{% block title %}
+<title>Archived user</title>
+{% endblock title %}
+
+{% block content %}
+
+<div class="teacher-main_container">
+    <div class = "course-container">
+        <div class="title">Archived users Fall 2022</div>
+        <div class = "course-content">
+            {% for user in users %}
+            {% if user.is_superuser != True %}
+            <div class = "sdetail">
+                <div class = "space-course">
+                <span >{{user.username}}</span>
+                </div>
+                <div class = "space">
+                    <div class="modify-button-admin">
+                        <a class = "" href = "{% url 'archive_user_summary_page' user.id %}" >Info</a>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}

@@ -1,0 +1,36 @@
+{% extends 'core3.html' %}
+
+{% block title %}
+<title>Time scheduale</title>
+{% endblock title %}
+
+{% block content %}
+
+<div class="teacher-main_container">
+    <div class = "course-container">
+        <div class="title">Time scheduale</div>
+        <div class = "course-content">
+            {% for user in users %}
+            {% if user.is_superuser != True %}
+            <div class = "sdetail">
+                <div class = "space-course">
+                <span >{{user.username}}</span>
+                <span>{{user.serialNumber}}</span>
+                </div>
+                <div class = "space">
+                    <div class="modify-button-admin">
+                        <a class = "" href = "{% url 'summary_page_for_admin' user.id %}" >Summary</a>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+    <div class="add-button">
+            <a class = "" href = "{% url 'schedual_time_page' %}" >Times</a>
+        </div>
+</div>
+
+
+{% endblock content %}

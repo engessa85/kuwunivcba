@@ -1,0 +1,90 @@
+{% extends 'core2.html' %}
+
+{% block title %}
+<title>Teacher</title>
+{% endblock title %}
+
+{% block content %}
+{% load static %}
+<script src="{% url 'js-catlog' %}"></script>
+<script src="{% static '/admin/js/core.js' %}"></script>
+<link
+      rel="stylesheet"
+      type="text/css"
+      media="screen"
+      href="{% static 'styles/base.css' %}"
+    />
+<link rel="stylesheet" href="{% static 'admin/css/widgets.css' %}">
+
+
+<div class="teacher-main_container">
+    <div class = "teacher-container">
+        <div class="title">Courses Registration</div>
+        <div class = "teacher-content">
+            <form method = "POST" action = "">
+                {% csrf_token %}
+                <div class = "courses-values">
+                    <span>Courses</span>
+                    <div class = "courses-values-desires">
+                        <div class = "">
+                            <span class = ''>1st desire {{form.d1}}</span>
+                            <span class = "">2nd desire {{form.d2}}</span>
+                            <span class = "">3rd desire {{form.d3}}</span>
+                        </div>
+                        <div class = "">
+                            <span class = "">4th desire {{form.d4}}</span>
+                            <span class = "">5th desire {{form.d5}}</span>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div></div>
+                <div class = "times-values">
+                    <span>Time Preferences</span>
+                    <div class = "times-values-desires">
+                        <div class = "time-row">
+                            <span class = 'first'>1st desire</span>
+                            <span>{{form.d1t1}}</span>
+                            <span>{{form.d1t2}}</span>
+                            <span>{{form.d1t3}}</span>
+                            <span>{{form.day1}}</span>
+                            
+                        </div>
+                        <div class = "time-row">
+                            <span class = "second">2nd desire</span>
+                            <span>{{form.d2t1}}</span>
+                            <span>{{form.d2t2}}</span>
+                            <span>{{form.d2t3}}</span>
+                            <span>{{form.day2}}</span>
+                        </div>
+                        <div class = "time-row">
+                            <span class = "third">3rd desire</span>
+                            <span>{{form.d3t1}}</span>
+                            <span>{{form.d3t2}}</span>
+                            <span>{{form.d3t3}}</span>
+                            <span>{{form.day3}}</span>
+                        </div>
+                        <div class = "time-row">
+                            <span class = "fourth">4th desire</span>
+                            <span>{{form.d4t1}}</span>
+                            <span>{{form.d4t2}}</span>
+                            <span>{{form.d4t3}}</span>
+                            <span>{{form.day4}}</span>
+                        </div>
+                        <div class = "time-row">
+                            <span class = "fifth">5th desire</span>
+                            <span>{{form.d5t1}}</span>
+                            <span>{{form.d5t2}}</span>
+                            <span>{{form.d5t3}}</span>
+                            <span>{{form.day5}}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="button">
+                    <input type="submit" value="Submit">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}

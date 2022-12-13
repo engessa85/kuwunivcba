@@ -1,0 +1,22 @@
+<header>
+    <ul class="navbar">
+      <div class = 'navbar-main'>
+        {% comment %} <a href=""><li>OutFit Session</li></a> {% endcomment %}
+        <img src="\media\images\logo.png" alt="">
+      </div>
+      <div class="navbar-items">
+        {% if request.user.is_authenticated %}
+        <a class= "logout-hover" href="{% url 'course_page' %}"><li>Course</li></a>
+        <a class= "logout-hover" href="{% url 'time_page' %}"><li>Time</li></a>
+        <a  class= "logout-hover" href="{% url 'faculty_page_detail' %}"><li>Faculty</li></a>
+        <a class= "logout-hover" href="{% url 'schedule_course_page' %}"><li>Schedule</li></a>
+        <a  class= "logout-hover" href="{% url 'archive_page' %}"><li>Archive</li></a>
+        <a class = "welcome-user" href=""><li>Welcome {{request.user}}</li></a>
+        <a class = "logout-hover" href="{% url 'logout_page' %}"><li>logout</li></a>
+        {% endif %}
+      </div>
+    </ul>
+  </header>
+  
+  
+  

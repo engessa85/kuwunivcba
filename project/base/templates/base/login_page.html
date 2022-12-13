@@ -1,0 +1,23 @@
+{% extends 'core.html' %}
+
+{% block title %}
+<title>Login</title>
+{% endblock title %}
+
+{% block content %}
+<div class="isom-title">
+    <img src="\media\images\logo.png" alt="" sizes="100">
+    <h1>ISOM Department</h1>
+</div>
+<div class="login-box">
+    <h1>Login</h1>
+    <form method = "POST" action = "">
+    {% csrf_token %}
+      {{form}}
+      <input type="submit" value="Submit" />
+    </form>
+</div>
+<p class="para-1">
+    Not have an account? <a href="{% url 'signup_page' %}">Sign Up Here</a>
+</p>
+{% endblock content %}

@@ -1,0 +1,43 @@
+{% extends 'core3.html' %}
+
+{% block title %}
+<title>Schedule</title>
+{% endblock title %}
+
+{% block content %}
+
+<div class="schedule-main-container">
+    <div class = "schedule-container">
+        <div class="title">
+            <a href = "{% url 'schedule_course_page' %}">Course Schedule</a>
+            <a href = "{% url 'schedule_time_page_' %}">Time Schedule</a>
+        </div>
+
+        <div class="title">
+            <a href = "{% url 'schedule_time_page_1' %}">1st Desire</a>
+            <a href = "{% url 'schedule_time_page_2' %}">2nd Desire</a>
+            <a href = "{% url 'schedule_time_page_3' %}">3rd Desire</a>
+        </div>
+
+
+        <table id="time">
+            <tr>
+              <th>Times</th>
+              <th>1st Desire</th>
+            </tr>
+            {% for key,value in final_dic.items %}
+            <tr>
+              <td>{{key}}</td>
+              <td>
+                {% for v in value.0 %}
+                <div class = 'd1'>{{v}}</div>
+                {% endfor %}
+              </td>
+            </tr>
+            {% endfor %}
+          </table>
+    </div>
+</div>
+
+
+{% endblock content %}

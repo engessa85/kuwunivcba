@@ -1,0 +1,29 @@
+{% extends 'core2.html' %}
+
+{% block title %}
+<title>Teacher</title>
+{% endblock title %}
+
+{% block content %}
+{% load static %}
+<script src="{% url 'js-catlog' %}"></script>
+<script src="{% static '/admin/js/core.js' %}"></script>
+<link
+      rel="stylesheet"
+      type="text/css"
+      media="screen"
+      href="{% static 'styles/base.css' %}"
+    />
+<link rel="stylesheet" href="{% static 'admin/css/widgets.css' %}">
+
+
+<div class="teacher-main_container">
+    <div class = "teacher-container">
+        <div class="title">Courses Registration</div>
+        <div class = "email-content">
+           <h3>Summary has been sent successfully to your email ....<h3>
+            <a class = "" href = "{% url 'summary_page' %}">Back</a>
+        </div>
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,36 @@
+{% extends 'core3.html' %}
+
+{% block title %}
+<title>Course</title>
+{% endblock title %}
+
+{% block content %}
+
+<div class="teacher-main_container">
+    <div class = "course-container">
+        <div class="title">Times</div>
+        <div class = "course-content">
+            {% for time in times %}
+            <div class = "sdetail">
+                <div class = "space-course">
+                <span >{{time.time_value}}</span>
+                </div>
+                <div class = "space">
+                    <div class="modify-button">
+                        <a class = "" href = "{% url 'modify_schedual_time_page' time.id %}" >Modify</a>
+                    </div>
+                    <div class="delete-button">
+                        <a class = "" href = "{% url 'delete_schedual_time_page' time.id %}" >Delete</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="add-button">
+            <a class = "" href = "{% url 'add_schedual_time_page' %}" >Add New time</a>
+        </div>
+</div>
+
+
+{% endblock content %}

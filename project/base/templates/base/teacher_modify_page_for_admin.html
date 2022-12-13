@@ -1,0 +1,68 @@
+{% extends 'core3.html' %}
+
+{% block title %}
+<title>Time scheduale</title>
+{% endblock title %}
+
+{% block content %}
+
+{% load static %}
+<script src="{% url 'js-catlog' %}"></script>
+<script src="{% static '/admin/js/core.js' %}"></script>
+<link
+      rel="stylesheet"
+      type="text/css"
+      media="screen"
+      href="{% static 'styles/base.css' %}"
+    />
+<link rel="stylesheet" href="{% static 'admin/css/widgets.css' %}">
+
+<div class="teacher-main_container">
+    <div class = "teacher-container">
+        <div class="title">Update Registration for {{model_is.user}}</div>
+        <div class = "teacher-content">
+            <form method = "POST" action = "">
+                {% csrf_token %}
+                <div class = "form-contnet">
+                    <span class = 'first'>1st desire:{{form.d1}}</span>
+                    <span>time1:{{form.d1t1}}</span>
+                    <span>time2:{{form.d1t2}}</span>
+                    <span>time3:{{form.d1t3}}</span>
+                </div>
+
+                <div class = "form-contnet">
+                    <span class = "second">2nd desire:{{form.d2}}</span>
+                    <span>time1:{{form.d2t1}}</span>
+                    <span>time2:{{form.d2t2}}</span>
+                    <span>time3:{{form.d2t3}}</span>
+                </div>
+
+                 <div class = "form-contnet">
+                    <span class = "third">3rd desire:{{form.d3}}</span>
+                    <span>time1:{{form.d3t1}}</span>
+                    <span>time2:{{form.d3t2}}</span>
+                    <span>time3:{{form.d3t3}}</span>
+                </div>
+
+                <div class = "form-contnet">
+                    <span class = "fourth">4th desire:{{form.d4}}</span>
+                    <span>time1:{{form.d4t1}}</span>
+                    <span>time2:{{form.d4t2}}</span>
+                    <span>time3:{{form.d4t3}}</span>
+                </div>
+
+                <div class = "form-contnet">
+                    <span class = "fifth">5th desire:{{form.d5}}</span>
+                    <span>time1:{{form.d5t1}}</span>
+                    <span>time2:{{form.d5t2}}</span>
+                    <span>time3:{{form.d5t3}}</span>
+                </div>
+
+                <div class="button">
+                    <input type="submit" value="Update">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}

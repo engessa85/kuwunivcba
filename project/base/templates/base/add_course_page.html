@@ -1,0 +1,25 @@
+{% extends 'core3.html' %}
+
+{% block title %}
+<title>Add Course</title>
+{% endblock title %}
+
+{% block content %}
+
+<div class="teacher-main_container">
+    <div class = "course-container">
+        <div class="title">Adding course</div>
+        <div class = "course-content">
+            <form method = "POST" action = "">
+             {% csrf_token %}
+             {{form}}
+             <div class="add-button">
+                <button type = "submit">Add</button>
+            </div>
+            </form> 
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}

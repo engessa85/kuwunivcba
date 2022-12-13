@@ -1,0 +1,59 @@
+{% extends 'core3.html' %}
+
+{% block title %}
+<title>User summary</title>
+{% endblock title %}
+
+{% block content %}
+
+<div class="teacher-main_container">
+    <div class = "teacher-container">
+        {% if model1_username == None  %}
+        <div class="title">User not Registered ...</div>
+        {% else %}
+        <div class="title">Summary for {{model1_username}}</div>
+        {% endif %}
+        <div class = "summary-content">
+            {% for item in model1 %}
+
+            <div class = "sdetail">
+                {% comment %} <span class="first">1st desire</span> {% endcomment %}
+                <span>{{item.d1}}</span>
+                <span>{{item.d1t1}}</span>
+                <span>{{item.day1}}</span>
+            </div>
+
+            <div class = "sdetail">
+                {% comment %} <span class="second">2nd desire</span> {% endcomment %}
+                <span>{{item.d2}}</span>
+                <span>{{item.d2t1}}</span>
+                <span>{{item.day2}}</span>
+            </div>
+
+            <div class = "sdetail">
+                {% comment %} <span class="third">3rd desire</span> {% endcomment %}
+                <span>{{item.d3}}</span>
+                <span>{{item.d3t1}}</span>
+                <span>{{item.day3}}</span>
+            </div>
+
+            {% comment %} <div class = "sdetail">
+                <span class="fourth">4th desire</span>
+                <span>{{item.d4}}</span>
+                <span>{{item.d4t1}}</span>
+                <span>{{item.day4}}</span>
+            </div>
+
+            <div class = "sdetail">
+                <span class="fifth">5th desire</span>
+                <span>{{item.d5}}</span>
+                <span>{{item.d5t1}}</span>
+                <span>{{item.day5}}</span>
+            </div> {% endcomment %}
+
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
