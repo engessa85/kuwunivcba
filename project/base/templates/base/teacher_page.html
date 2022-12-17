@@ -16,7 +16,6 @@
     />
 <link rel="stylesheet" href="{% static 'admin/css/widgets.css' %}">
 
-
 <div class="teacher-main_container">
     <div class = "teacher-container">
         <div class="title">Courses Registration</div>
@@ -31,55 +30,126 @@
                             <span class = "">2nd desire {{form.d2}}</span>
                             <span class = "">3rd desire {{form.d3}}</span>
                         </div>
-                        <div class = "">
+                        <div class = "" id = "desire-4">
                             <span class = "">4th desire {{form.d4}}</span>
                             <span class = "">5th desire {{form.d5}}</span>
-                            
                         </div>
                     </div>
                 </div>
-                <div></div>
+                <div class = 'check-course'>
+                    <label >Addd Extra Courses</label>
+                    <input type="checkbox" id="check-course" name="" value="">
+                </div>
                 <div class = "times-values">
                     <span>Time Preferences</span>
                     <div class = "times-values-desires">
+                        
                         <div class = "time-row">
                             <span class = 'first'>1st desire</span>
-                            <span>{{form.d1t1}}</span>
-                            <span>{{form.d1t2}}</span>
-                            <span>{{form.d1t3}}</span>
-                            <span>{{form.day1}}</span>
-                            
+                            <span>
+                                <select name="d1t1" required id="id_d1t1">
+                                    <option value selected>-----------</option>
+                                  </select>
+                            </span>
+                            <span>
+                                <select name="d1t2" required id="id_d1t2">
+                                    <option value selected>-----------</option>
+                                  </select>
+                            </span>
+                            <span>
+                                <select name="d1t3" required id="id_d1t3">
+                                    <option value selected>-----------</option>
+                                  </select>
+                            </span>
+                            <span id = "day1_is">{{form.day1}}</span>
                         </div>
+                        
+
+
                         <div class = "time-row">
                             <span class = "second">2nd desire</span>
-                            <span>{{form.d2t1}}</span>
-                            <span>{{form.d2t2}}</span>
-                            <span>{{form.d2t3}}</span>
-                            <span>{{form.day2}}</span>
+                            <span>
+                                <select name="d2t1" required id="id_d2t1">
+                                    <option value selected>-----------</option>
+                                  </select>
+                            </span>
+                            <span>
+                                <select name="d2t2" required id="id_d2t2">
+                                    <option value selected>-----------</option>
+                                  </select>
+                            </span>
+                            <span>
+                                <select name="d2t3" required id="id_d2t3">
+                                    <option value selected>-----------</option>
+                                  </select>
+                            </span>
+                            <span id = "day2_is">{{form.day2}}</span>
                         </div>
+
+
                         <div class = "time-row">
                             <span class = "third">3rd desire</span>
-                            <span>{{form.d3t1}}</span>
-                            <span>{{form.d3t2}}</span>
-                            <span>{{form.d3t3}}</span>
-                            <span>{{form.day3}}</span>
+                            <span>
+                                <select name="d3t1" required id="id_d3t1">
+                                    <option value selected>-----------</option>
+                                  </select>
+                            </span>
+                            <span>
+                                <select name="d3t2" required id="id_d3t2">
+                                    <option value selected>-----------</option>
+                                  </select>
+                            </span>
+                            <span>
+                                <select name="d3t3" required id="id_d3t3">
+                                    <option value selected>-----------</option>
+                                  </select>
+                            </span>
+                            <span id = "day3_is">{{form.day3}}</span>
                         </div>
-                        <div class = "time-row">
+
+
+
+                        <div class = "time-row" id = "fourth-desire">
                             <span class = "fourth">4th desire</span>
-                            <span>{{form.d4t1}}</span>
-                            <span>{{form.d4t2}}</span>
-                            <span>{{form.d4t3}}</span>
-                            <span>{{form.day4}}</span>
+                            <span>
+                                <select name="d4t1" required id="id_d4t1">
+                                    <option value selected>-----------</option>
+                                  </select>
+                            </span>
+                            <span>
+                                <select name="d4t2" required id="id_d4t2">
+                                    <option value selected>-----------</option>
+                                  </select>
+                            </span>
+                            <span>
+                                <select name="d4t3" required id="id_d4t3">
+                                    <option value selected>-----------</option>
+                                  </select>
+                            </span>
+                            <span id = "day4_is">{{form.day4}}</span>
                         </div>
-                        <div class = "time-row">
+
+                        {% comment %} <div class = "time-row" id = "fifth-desire">
                             <span class = "fifth">5th desire</span>
                             <span>{{form.d5t1}}</span>
                             <span>{{form.d5t2}}</span>
                             <span>{{form.d5t3}}</span>
                             <span>{{form.day5}}</span>
-                        </div>
+                        </div> {% endcomment %}
                     </div>
                 </div>
+
+                <div class = "message">
+                {% if messages %}
+                {% for message in messages %}
+                <div style = "color:gray">
+                    {{message}}
+                </div>
+                {% endfor %}
+                {% endif %}
+                </div>
+
+
                 <div class="button">
                     <input type="submit" value="Submit">
                 </div>
@@ -87,4 +157,6 @@
         </div>
     </div>
 </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script src="{% static 'styles/main.js' %}"></script>
 {% endblock content %}

@@ -247,7 +247,7 @@
   .teacher-content .courses-values{
     display: flex;
     justify-content: space-between;
-    width: 900px;
+    width: 1000px;
     height: 70px;
     margin-top: 20px;
   }
@@ -273,14 +273,28 @@
     width: 105px;
   }
 
+  .teacher-content .check-course{
+    display: flex;
+    flex-direction: column;
+    width: 900px;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    height: 50px;
+  }
+  .teacher-content .check-course label {
+    font-size: 16px;
+    color: var(--button-color);
+  }
+
 
 
   .teacher-content .times-values{
     display: flex;
     justify-content: space-between;
     width: 1000px;
-    height: 200px;
-    margin-top: 20px;
+    height: 150px;
+    margin-top: 5px;
   }
 
 
@@ -295,7 +309,7 @@
   .teacher-content .times-values .times-values-desires{
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-evenly;
   }
 
   /* .teacher-content .times-values .times-values-desires .time-row{
@@ -356,13 +370,19 @@
     font-weight: bold;
     color: gray;
   }
+
+  .teacher-content form .message {
+    margin-top: 5px;
+    display: flex;
+    justify-content: center;
+    width: 900px;
+    }
  
  
   .teacher-content form .button {
-  margin-top: 30px;
+  margin-top: 5px;
   display: flex;
   justify-content: center;
-  align-items: center;
   width: 900px;
   }
 

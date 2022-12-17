@@ -43,6 +43,9 @@ urlpatterns = [
     path('archive-user/', views.archive_user_page, name='archive_user_page'),
     path('archive-user-summary/<str:pk>', views.archive_user_summary_page, name='archive_user_summary_page'),
 
+    path('test/', views.test_page, name='test_page'),
+    path('done/', views.done_page, name='done_page'),
+
 
     
 

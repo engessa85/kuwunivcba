@@ -14,6 +14,11 @@ class User(AbstractUser):
 
 
 class DT_model(models.Model):
+    days_choices =[("24", "24"),
+                   ("135", "135"),
+                   ("12345", "12345")]
+
+    group = models.CharField(max_length=100, null= True, choices=days_choices)
     time_value = models.CharField(max_length=100, null= True, unique=True)
     def __str__(self):
         return str(self.time_value)

@@ -39,6 +39,7 @@
                 <span>{{item.day3}}</span>
             </div>
 
+            {% if item.d4 %}
             <div class = "sdetail">
                 <span class="fourth">4th desire</span>
                 <span>{{item.d4}}</span>
@@ -47,15 +48,16 @@
                 <span>{{item.d4t3}}</span>
                 <span>{{item.day4}}</span>
             </div>
+            {% endif %}
 
-            <div class = "sdetail">
+            {% comment %} <div class = "sdetail">
                 <span class="fifth">5th desire</span>
                 <span>{{item.d5}}</span>
                 <span>{{item.d5t1}}</span>
                 <span>{{item.d5t2}}</span>
                 <span>{{item.d5t3}}</span>
                 <span>{{item.day5}}</span>
-            </div>
+            </div> {% endcomment %}
 
             <div class="summary-button">
                 <a class = "" href = "{% url 'teacher_modify_page' item.id %}">Modify</a>

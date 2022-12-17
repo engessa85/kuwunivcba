@@ -39,18 +39,18 @@ class DesireForm(forms.ModelForm):
     d3t3 = forms.ModelChoiceField(queryset=DT_model.objects.all())
     day3 = forms.ModelChoiceField(queryset=Days_model.objects.all())
 
-    d4 = forms.ModelChoiceField(queryset=Courses_model.objects.filter(offered = True))
-    d4t1 = forms.ModelChoiceField(queryset=DT_model.objects.all())
-    d4t2 = forms.ModelChoiceField(queryset=DT_model.objects.all())
-    d4t3 = forms.ModelChoiceField(queryset=DT_model.objects.all())
-    day4 = forms.ModelChoiceField(queryset=Days_model.objects.all())
+    d4 = forms.ModelChoiceField(queryset=Courses_model.objects.filter(offered = True),required=False)
+    d4t1 = forms.ModelChoiceField(queryset=DT_model.objects.all(),required=False)
+    d4t2 = forms.ModelChoiceField(queryset=DT_model.objects.all(),required=False)
+    d4t3 = forms.ModelChoiceField(queryset=DT_model.objects.all(),required=False)
+    day4 = forms.ModelChoiceField(queryset=Days_model.objects.all(),required=False)
 
 
-    d5 = forms.ModelChoiceField(queryset=Courses_model.objects.filter(offered = True))
-    d5t1 = forms.ModelChoiceField(queryset=DT_model.objects.all())
-    d5t2 = forms.ModelChoiceField(queryset=DT_model.objects.all())
-    d5t3 = forms.ModelChoiceField(queryset=DT_model.objects.all())
-    day5 = forms.ModelChoiceField(queryset=Days_model.objects.all())
+    d5 = forms.ModelChoiceField(queryset=Courses_model.objects.filter(offered = True),required=False)
+    d5t1 = forms.ModelChoiceField(queryset=DT_model.objects.all(),required=False)
+    d5t2 = forms.ModelChoiceField(queryset=DT_model.objects.all(),required=False)
+    d5t3 = forms.ModelChoiceField(queryset=DT_model.objects.all(),required=False)
+    day5 = forms.ModelChoiceField(queryset=Days_model.objects.all(),required=False)
 
     class Meta:
         model = Desires_model
