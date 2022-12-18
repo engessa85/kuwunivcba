@@ -303,7 +303,7 @@ $(document).ready(function(){
 
   document.getElementById("fourth-desire").style.display = "none";
   // document.getElementById("fifth-desire").style.display = "none";
-  document.getElementById("desire-4").style.display = "none";
+  // document.getElementById("desire-4").style.display = "none";
 
   
 
@@ -314,11 +314,11 @@ check_value.addEventListener("change",function(e){
   if(check_value.checked){
     document.getElementById("fourth-desire").style.display = "initial";
     // document.getElementById("fifth-desire").style.display = "initial";
-    document.getElementById("desire-4").style.display = "initial";
+    // document.getElementById("desire-4").style.display = "initial";
   }else{
   document.getElementById("fourth-desire").style.display = "none";
   // document.getElementById("fifth-desire").style.display = "none";
-  document.getElementById("desire-4").style.display = "none";
+  // document.getElementById("desire-4").style.display = "none";
   }
 })
 

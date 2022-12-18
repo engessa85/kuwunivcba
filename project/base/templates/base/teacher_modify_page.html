@@ -31,11 +31,8 @@
                             <span class = "">3rd desire {{form.d3}}</span>
                         </div>
                         <div class = "">
-                            {% if d4 %}
                             <span class = "">4th desire {{form.d4}}</span>
                             <span class = "">5th desire {{form.d5}}</span>
-                            {% endif %}
-                            
                         </div>
                     </div>
                 </div>
@@ -65,7 +62,7 @@
                             <span>{{form.d3t3}}</span>
                             <span>{{form.day3}}</span>
                         </div>
-                        {% if d4 %}
+                        {% if d4t1%}
                         <div class = "time-row">
                             <span class = "fourth">4th desire</span>
                             <span>{{form.d4t1}}</span>
@@ -73,14 +70,8 @@
                             <span>{{form.d4t3}}</span>
                             <span>{{form.day4}}</span>
                         </div>
-                        {% endif %}
-                        {% comment %} <div class = "time-row">
-                            <span class = "fifth">5th desire</span>
-                            <span>{{form.d5t1}}</span>
-                            <span>{{form.d5t2}}</span>
-                            <span>{{form.d5t3}}</span>
-                            <span>{{form.day5}}</span>
-                        </div> {% endcomment %}
+                        {% endif%}
+
                     </div>
                 </div>
                 <div class="button">

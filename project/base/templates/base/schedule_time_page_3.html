@@ -27,7 +27,7 @@
             </tr>
             {% for key,value in final_dic.items %}
             <tr>
-              <td>{{key}}</td>
+              <td>{{key}} ... {{key.group}}</td>
               <td>
                 {% for v in value.2 %}
                 <div class = 'd3'>{{v}}</div>
