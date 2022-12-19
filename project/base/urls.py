@@ -30,6 +30,7 @@ urlpatterns = [
 
     path('faculty-detail/', views.faculty_page_detail, name='faculty_page_detail'),
     path('faculty-modify/<str:pk>', views.faculty_page_modify, name='faculty_page_modify'),
+    path('delete-faculty/<str:pk>', views.delete_faculty_page, name='delete_faculty_page'),
 
     path('schedule/', views.schedule_course_page, name='schedule_course_page'),
     path('schedule-time/', views.schedule_time_page_, name='schedule_time_page_'),
@@ -41,6 +42,8 @@ urlpatterns = [
 
     path('archive/', views.archive_page, name='archive_page'),
     path('archive-user/', views.archive_user_page, name='archive_user_page'),
+    path('add-file/', views.add_file_page, name='add_file_page'),
+    path('delete_file/<str:pk>', views.delete_file, name='delete_file'),
     path('archive-user-summary/<str:pk>', views.archive_user_summary_page, name='archive_user_summary_page'),
 
     path('test/', views.test_page, name='test_page'),

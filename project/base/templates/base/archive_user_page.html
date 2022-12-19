@@ -8,25 +8,64 @@
 
 <div class="teacher-main_container">
     <div class = "course-container">
-        <div class="title">Archived users Fall 2022</div>
+        <div class="title">Archived Files Fall 2022</div>
         <div class = "course-content">
-            {% for user in users %}
-            {% if user.is_superuser != True %}
+            {% for file in files %}
             <div class = "sdetail">
                 <div class = "space-course">
-                <span >{{user.username}}</span>
+                <span >
+                    {{file.file.name}}
+                </span>
                 </div>
                 <div class = "space">
                     <div class="modify-button-admin">
-                        <a class = "" href = "{% url 'archive_user_summary_page' user.id %}" >Info</a>
+                        <a class = "" href = "{{file.file.url}}" >Download</a>
+                    </div>
+                    <div class="delete-button">
+                        <a class = "" href = "{% url 'delete_file' file.id%}" >Delete</a>
                     </div>
                 </div>
             </div>
-            {% endif %}
             {% endfor %}
         </div>
     </div>
+    <div class="add-button">
+        <a class = "" href = "{% url 'add_file_page' %}" >Add File</a>
+    </div>
 </div>
 
-
 {% endblock content %}
+
+
+
+
+{% comment %} <div class = "course-container">
+    <div class="title">Archived users Fall 2022</div>
+    <div class = "course-content">
+        {% for user in users %}
+        {% if user.is_superuser != True %}
+        <div class = "sdetail">
+            <div class = "space-course">
+            <span >{{user.username}}</span>
+            </div>
+            <div class = "space">
+                <div class="modify-button-admin">
+                    <a class = "" href = "{% url 'archive_user_summary_page' user.id %}" >Info</a>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+</div> {% endcomment %}
+
+
+<!-- <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="file" name="document">
+            <button type="submit">Upload</button>
+    </form> -->
+
+
+
+    

@@ -77,6 +77,16 @@ class Desires_model(models.Model):
         return str(self.user)
 
 
+class Semester_files(models.Model):
+    file = models.FileField(blank = False, null=True)
+
+    def __str__(self):
+        return str(self.file.name)
+        
+    def delete(self,*args, **kwargs):
+        self.file.delete()
+        super().delete(*args, **kwargs)
+
     
 
 

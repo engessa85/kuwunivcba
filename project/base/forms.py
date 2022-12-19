@@ -3,7 +3,7 @@ from django.forms import ModelForm
 # from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.admin.widgets import AdminDateWidget, AdminTimeWidget
-from .models import Desires_model,Courses_model, DT_model, Days_model ,User
+from .models import Desires_model,Courses_model, DT_model, Days_model ,User, Semester_files
 
 
 
@@ -154,6 +154,13 @@ class ModUserForm(forms.ModelForm):
         model = User
         fields = "__all__"
         fields = ['serialNumber', 'report', 'teaching', 'vip']
+
+
+class AddingFileForm(forms.ModelForm):
+
+    class Meta:
+        model = Semester_files
+        fields = "__all__"
     
     
 

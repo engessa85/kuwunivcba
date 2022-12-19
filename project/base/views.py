@@ -1,8 +1,8 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import logout,login
-from .forms import TeacherForm,DesireForm, DesireFormUpdate, AddingCourseForm, AddingTomeForm, ModUserForm
-from .models import Desires_model, Courses_model, DT_model,Days_model, User
+from .forms import TeacherForm,DesireForm, DesireFormUpdate, AddingCourseForm, AddingTomeForm, ModUserForm, AddingFileForm
+from .models import Desires_model, Courses_model, DT_model,Days_model, User, Semester_files
 from django import forms
 from django.core.mail import send_mail
 from django.conf import settings
@@ -584,6 +584,16 @@ def faculty_page_modify(request, pk):
     context ={'form':form}
     return render(request, 'base/faculty_page_modify.html', context)
 
+@login_required(login_url='login_page')
+def delete_faculty_page(request, pk):
+    user_is = User.objects.get(id = pk)
+    if request.method == "POST":
+        user_is.delete()
+        return redirect("faculty_page_detail")
+        
+    context ={'user_is':user_is}
+    return render(request, 'base/delete_faculty_page.html', context)
+
 
 ###########################################################################
 
@@ -754,9 +764,31 @@ def archive_page(request):
 
 @login_required(login_url='login_page')
 def archive_user_page(request):
-    users = User.objects.all()
-    context = {'users':users}
+
+    files = Semester_files.objects.all()
+    context = {"files":files}
     return render(request, 'base/archive_user_page.html', context)
+
+
+@login_required(login_url='login_page')
+def add_file_page(request):
+    form = AddingFileForm()
+    if request.method == "POST":
+        form = AddingFileForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect("archive_user_page")
+    context ={'form':form}
+    return render(request, 'base/add_file_page.html', context)
+
+@login_required(login_url='login_page')
+def delete_file(request,pk):
+    file = Semester_files.objects.get(id = pk)
+    if request.method == "POST":
+        file.delete()
+        return redirect("archive_user_page")
+    context = {'file':file}
+    return render(request, 'base/delete_file_page.html', context)
 
 
 @login_required(login_url='login_page')

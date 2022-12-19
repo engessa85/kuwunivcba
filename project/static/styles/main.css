@@ -680,7 +680,7 @@
   .course-content .sdetail .space-course {
     display: flex;
     justify-content: space-between;
-    width: 28%;
+    width: 35%;
   }
 
   .course-content .sdetail .space-course span:nth-child(1) {

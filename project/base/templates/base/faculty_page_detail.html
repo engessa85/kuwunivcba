@@ -16,6 +16,7 @@
                 <div class = "space-course">
                 <span >{{user.username}}</span>
                 <span>{{user.serialNumber}}</span>
+                <span >{{user.email}}</span>
                 </div>
                 <div class = "space">
                     {%if user.teaching %}
@@ -39,10 +40,13 @@
                     {% endif %}
                     {% comment %} <div class = "offered">
                         <span>{{user.report}} Reports</span>
-                    </div>
+                    </div> {% endcomment %}
                     <div class="modify-button-admin">
                         <a class = "" href = "{% url 'faculty_page_modify' user.id %}" >Modify</a>
-                    </div> {% endcomment %}
+                    </div>
+                    <div class="delete-button">
+                        <a class = "" href = "{% url 'delete_faculty_page' user.id %}" >Delete</a>
+                    </div>
                 </div>
             </div>
             {% endif %}

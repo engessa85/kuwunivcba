@@ -1,0 +1,26 @@
+{% extends 'core3.html' %}
+
+{% block title %}
+<title>Delete Faculty</title>
+{% endblock title %}
+
+{% block content %}
+
+<div class="teacher-main_container">
+    <div class = "course-container">
+        <div class="title">Deleting Faculty</div>
+        <div class = "delete-content">
+            <h3>Are your sure you want to delete: <span>{{user_is}} - {{user_is.serialNumber}}</span></h3>
+            <form method = "POST" action = "">
+             {% csrf_token %}
+             <div class="del-button">
+                <a class = "" href = "{% url 'faculty_page_detail' %}" >Back</a>
+                <button type = "submit">Delete</button>
+            </div>
+            </form> 
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}
