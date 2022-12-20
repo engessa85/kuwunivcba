@@ -10,7 +10,6 @@ class User(AbstractUser):
     teaching = models.BooleanField(default=False, null=True)
     vip = models.BooleanField(default=False, null=True)
     report = models.CharField(max_length=10, null=True)
-    REQUIRED_FIELDS = []
 
 
 class DT_model(models.Model):
@@ -47,31 +46,33 @@ class Desires_model(models.Model):
     d1t1 = models.CharField(max_length=100, null=True)
     d1t2 = models.CharField(max_length=100, null=True)
     d1t3 = models.CharField(max_length=100, null=True)
-    day1 = models.CharField(max_length=100, null=True)
+    # day1 = models.CharField(max_length=100, null=True)
 
     d2 = models.CharField(max_length=100, null=True)
     d2t1 = models.CharField(max_length=100, null=True)
     d2t2 = models.CharField(max_length=100, null=True)
     d2t3 = models.CharField(max_length=100, null=True)
-    day2 = models.CharField(max_length=100, null=True)
+    # day2 = models.CharField(max_length=100, null=True)
 
     d3 = models.CharField(max_length=100, null=True)
     d3t1 = models.CharField(max_length=100, null=True)
     d3t2 = models.CharField(max_length=100, null=True)
     d3t3 = models.CharField(max_length=100, null=True)
-    day3 = models.CharField(max_length=100, null=True)
+    # day3 = models.CharField(max_length=100, null=True)
 
     d4 = models.CharField(max_length=100, null=True)
-    d4t1 = models.CharField(max_length=100, null=True)
-    d4t2 = models.CharField(max_length=100, null=True)
-    d4t3 = models.CharField(max_length=100, null=True)
-    day4 = models.CharField(max_length=100, null=True)
+    # d4t1 = models.CharField(max_length=100, null=True)
+    # d4t2 = models.CharField(max_length=100, null=True)
+    # d4t3 = models.CharField(max_length=100, null=True)
+    # day4 = models.CharField(max_length=100, null=True)
 
     d5 = models.CharField(max_length=100, null=True)
-    d5t1 = models.CharField(max_length=100, null=True)
-    d5t2 = models.CharField(max_length=100, null=True)
-    d5t3 = models.CharField(max_length=100, null=True)
-    day5 = models.CharField(max_length=100, null=True)
+    # d5t1 = models.CharField(max_length=100, null=True)
+    # d5t2 = models.CharField(max_length=100, null=True)
+    # d5t3 = models.CharField(max_length=100, null=True)
+    # day5 = models.CharField(max_length=100, null=True)
+
+    extra = models.BooleanField(default=False, null=True)
 
     def __str__(self):
         return str(self.user)

@@ -18,10 +18,11 @@ def login_page(request):
         form = AuthenticationForm(data = request.POST)
         if form.is_valid():
             username = form.get_user()
+            users = User.objects.get(username = username)
             login(request, username)
             if request.user.is_superuser:
                 return redirect("faculty_page")
-            else:
+            elif users.teaching:
                 return redirect("teacher_page")
                 
     context = {"form":form}
@@ -50,111 +51,53 @@ def teacher_page(request):
     if request.method == "POST":
         # d1......
         id_d1 = request.POST.get('d1')
-        # id_d1t1 = request.POST.get('d1t1')
-        # id_d1t2 = request.POST.get('d1t2')
-        # id_d1t3 = request.POST.get('d1t3')
-        id_day1 = request.POST.get('day1')
-
+        id_d1t1 = request.POST.get('d1t1')
+        id_d1t2 = request.POST.get('d1t2')
+        id_d1t3 = request.POST.get('d1t3')
+    
         d1 = Courses_model.objects.get(id = int(id_d1))
-        # d1t1 = DT_model.objects.get(id = int(id_d1t1))
-        # d1t2 = DT_model.objects.get(id = int(id_d1t2))
-        # d1t3 = DT_model.objects.get(id = int(id_d1t3))
-        day1 = Days_model.objects.get(id = int(id_day1))
-
-
-        d1t1 = request.POST.get("d1t1")
-        d1t2 = request.POST.get("d1t2")
-        d1t3 = request.POST.get("d1t3")
-
+        d1t1 = DT_model.objects.get(id = int(id_d1t1))
+        d1t2 = DT_model.objects.get(id = int(id_d1t2))
+        d1t3 = DT_model.objects.get(id = int(id_d1t3))
+        
         # d2......
         id_d2 = request.POST.get('d2')
-        # id_d2t1 = request.POST.get('d2t1')
-        # id_d2t2 = request.POST.get('d2t2')
-        # id_d2t3 = request.POST.get('d2t3')
-        id_day2 = request.POST.get('day2')
-
-
+        id_d2t1 = request.POST.get('d2t1')
+        id_d2t2 = request.POST.get('d2t2')
+        id_d2t3 = request.POST.get('d2t3')
+        
         d2 = Courses_model.objects.get(id = int(id_d2))
-        # d2t1 = DT_model.objects.get(id = int(id_d2t1))
-        # d2t2 = DT_model.objects.get(id = int(id_d2t2))
-        # d2t3 = DT_model.objects.get(id = int(id_d2t3))
-        day2 = Days_model.objects.get(id = int(id_day2))
-
-
-        d2t1 = request.POST.get("d2t1")
-        d2t2 = request.POST.get("d2t2")
-        d2t3 = request.POST.get("d2t3")
-
-
+        d2t1 = DT_model.objects.get(id = int(id_d2t1))
+        d2t2 = DT_model.objects.get(id = int(id_d2t2))
+        d2t3 = DT_model.objects.get(id = int(id_d2t3))
+        
         # d3......
         id_d3 = request.POST.get('d3')
-        # id_d3t1 = request.POST.get('d3t1')
-        # id_d3t2 = request.POST.get('d3t2')
-        # id_d3t3 = request.POST.get('d3t3')
-        id_day3 = request.POST.get('day3')
-
+        id_d3t1 = request.POST.get('d3t1')
+        id_d3t2 = request.POST.get('d3t2')
+        id_d3t3 = request.POST.get('d3t3')
 
         d3 = Courses_model.objects.get(id = int(id_d3))
-        # d3t1 = DT_model.objects.get(id = int(id_d3t1))
-        # d3t2 = DT_model.objects.get(id = int(id_d3t2))
-        # d3t3 = DT_model.objects.get(id = int(id_d3t3))
-        day3 = Days_model.objects.get(id = int(id_day3))
-
-
-        d3t1 = request.POST.get("d3t1")
-        d3t2 = request.POST.get("d3t2")
-        d3t3 = request.POST.get("d3t3")
-
+        d3t1 = DT_model.objects.get(id = int(id_d3t1))
+        d3t2 = DT_model.objects.get(id = int(id_d3t2))
+        d3t3 = DT_model.objects.get(id = int(id_d3t3))
 
         # d4......
         id_d4 = request.POST.get('d4')
         d4 = Courses_model.objects.get(id = int(id_d4))
 
-        if request.POST.get('d4t1') != "":
-            # id_d4 = request.POST.get('d4')
-            # id_d4t1 = request.POST.get('d4t1')
-            # id_d4t2 = request.POST.get('d4t2')
-            # id_d4t3 = request.POST.get('d4t3')
+        # d5......
+        id_d5 = request.POST.get('d5')
+        d5 = Courses_model.objects.get(id = int(id_d5))
 
-            id_day4 = request.POST.get('day4')
-            # print(id_day4)
-
-            # d4 = Courses_model.objects.get(id = int(id_d4))
-            # d4t1 = DT_model.objects.get(id = int(id_d4t1))
-            # d4t2 = DT_model.objects.get(id = int(id_d4t2))
-            # d4t3 = DT_model.objects.get(id = int(id_d4t3))
-            day4 = Days_model.objects.get(id = int(id_day4))
-
-            d4t1 = request.POST.get("d4t1")
-            d4t2 = request.POST.get("d4t2")
-            d4t3 = request.POST.get("d4t3")
-            # day4 = request.POST.get("day4")
-
-        else:
-            d4t1 = None
-            d4t2 = None
-            d4t3 = None
-            day4 = None
+        #extra
+        extra_value = False
+        check_value = request.POST.get("extra")
+        if check_value == "on":
+            print(True)
+            extra_value = True
+    
         
-        if request.POST.get('d5').isdigit():
-            id_d5 = request.POST.get('d5')
-            # id_d5t1 = request.POST.get('d5t1')
-            # id_d5t2 = request.POST.get('d5t2')
-            # id_d5t3 = request.POST.get('d5t3')
-            # id_day5 = request.POST.get('day5')
-
-            d5 = Courses_model.objects.get(id = int(id_d5))
-            # d5t1 = DT_model.objects.get(id = int(id_d5t1))
-            # d5t2 = DT_model.objects.get(id = int(id_d5t2))
-            # d5t3 = DT_model.objects.get(id = int(id_d5t3))
-            # day5 = Days_model.objects.get(id = int(id_day5))
-        else:
-            d5 = None
-
-
-        if day1 == day2 == day3:
-            messages.error(request, "Days should not be same!!!")
-            return redirect("teacher_page")
         
         if d1t1 == d1t2 == d1t3:
             messages.error(request, "1st Desire times should not be same!!!")
@@ -168,18 +111,13 @@ def teacher_page(request):
             messages.error(request, "3rd Desire times should not be same!!!")
             return redirect("teacher_page")
         
-        if d4t1 != None:
-            if d4t1 == d4t2 == d4t3:
-                messages.error(request, "4th Desire times should not be same!!!")
-                return redirect("teacher_page")
-
 
         if Desires_model.objects.filter(user=request.user).exists() == False:
-            model_is = Desires_model(user = request.user, d1 = d1, d1t1 = d1t1, d1t2 = d1t2, d1t3 = d1t3,day1 = day1,
-                                                   d2 = d2, d2t1 = d2t1, d2t2 = d2t2, d2t3 = d2t3,day2 = day2,
-                                                   d3 = d3, d3t1 = d3t1, d3t2 = d3t2, d3t3 = d3t3,day3 = day3,
-                                                   d4 = d4, d4t1 = d4t1, d4t2 = d4t2, d4t3 = d4t3,day4 = day4,
-                                                   d5 = d5, d5t1 = None, d5t2 = None, d5t3 = None,day5 = None,)
+            model_is = Desires_model(user = request.user, d1 = d1, d1t1 = d1t1, d1t2 = d1t2, d1t3 = d1t3,
+                                                          d2 = d2, d2t1 = d2t1, d2t2 = d2t2, d2t3 = d2t3,
+                                                          d3 = d3, d3t1 = d3t1, d3t2 = d3t2, d3t3 = d3t3,
+                                                          d4 = d4, d5 = d5, extra = extra_value)
+            
             model_is.save()
             return redirect("summary_page")
         else:
@@ -205,34 +143,20 @@ def summary_page(request):
                 d1t1 = item.d1t1
                 d1t2 = item.d1t2
                 d1t3 = item.d1t3
-                day1 = item.day1
 
                 d2 = item.d2
                 d2t1 = item.d2t1
                 d2t2 = item.d2t2
                 d2t3 = item.d2t3
-                day2 = item.day2
 
                 d3 = item.d3
                 d3t1 = item.d3t1
                 d3t2 = item.d3t2
                 d3t3 = item.d3t3
-                day3 = item.day3
 
-                d4 = item.d4
-                d4t1 = item.d4t1
-                d4t2 = item.d4t2
-                d4t3 = item.d4t3
-                day4 = item.day4
-
-                # d5 = item.d5
-                # d5t1 = item.d5t1
-                # d5t2 = item.d5t2
-                # d5t3 = item.d5t3
-                # day5 = item.day5
 
             subject = 'Course Regestiration Summary'
-            message = f"1st Desire {d1} > Time1: {d1t1} - Time2: {d1t2} - Time3: {d1t3} - Days: {day1}\n2nd Desire {d2} > Time1: {d2t1} - Time2: {d2t2} - Time3: {d2t3} - Days: {day2}\n3rd Desire {d3} > Time1: {d3t1} - Time2: {d3t2} - Time3: {d3t3} - Days: {day3}\n4th Desire {d4} > Time1: {d4t1} - Time2: {d4t2} - Time3: {d4t3} - Days: {day4}"
+            message = f"1st Desire {d1} > Time1: {d1t1} - Time2: {d1t2} - Time3: {d1t3}\n2nd Desire {d2} > Time1: {d2t1} - Time2: {d2t2} - Time3: {d2t3}\n3rd Desire {d3} > Time1: {d3t1} - Time2: {d3t2} - Time3: {d3t3}"
                         
             email_from = settings.EMAIL_HOST_USER
             recipient_list = [email]
@@ -261,6 +185,7 @@ def teacher_modify_page(request,pk):
     d3 = Courses_model.objects.get(title = model_is.d3)
     d4 = Courses_model.objects.get(title = model_is.d4)
     d5 = Courses_model.objects.get(title = model_is.d5)
+    
 
     d1t1 = DT_model.objects.get(time_value = model_is.d1t1)
     d1t2 = DT_model.objects.get(time_value = model_is.d1t2)
@@ -275,25 +200,14 @@ def teacher_modify_page(request,pk):
     d3t3 = DT_model.objects.get(time_value = model_is.d3t3)
 
 
-    day1 = Days_model.objects.get(title = model_is.day1)
-    day2 = Days_model.objects.get(title = model_is.day2)
-    day3 = Days_model.objects.get(title = model_is.day3)
-
-    
-    try:
-        d4t1 = DT_model.objects.get(time_value = model_is.d4t1)
-        d4t2 = DT_model.objects.get(time_value = model_is.d4t2)
-        d4t3 = DT_model.objects.get(time_value = model_is.d4t3)
-        day4 = Days_model.objects.get(title = model_is.day4)
-
-        initial_fields = {
+    initial_fields = {
 
         'd1':d1.id,
         'd2':d2.id,
         'd3':d3.id,
         'd4':d4.id,
         'd5':d5.id,
-
+        
         'd1t1':d1t1.id,
         'd1t2':d1t2.id,
         'd1t3':d1t3.id,
@@ -306,89 +220,7 @@ def teacher_modify_page(request,pk):
         'd3t2':d3t2.id,
         'd3t3':d3t3.id,
 
-        'd4t1':d4t1.id,
-        'd4t2':d4t2.id,
-        'd4t3':d4t3.id,
-
-        'day1': day1.id,
-        'day2': day2.id,
-        'day3': day3.id,
-        'day4': day4.id,
-
     }
-
-    except DT_model.DoesNotExist:
-        d4t1 = None
-        d4t2 = None
-        d4t3 = None
-        day4 = None
-
-        initial_fields = {
-
-        'd1':d1.id,
-        'd2':d2.id,
-        'd3':d3.id,
-        'd4':d4.id,
-        'd5':d5.id,
-
-        'd1t1':d1t1.id,
-        'd1t2':d1t2.id,
-        'd1t3':d1t3.id,
-
-        'd2t1':d2t1.id,
-        'd2t2':d2t2.id,
-        'd2t3':d2t3.id,
-
-        'd3t1':d3t1.id,
-        'd3t2':d3t2.id,
-        'd3t3':d3t3.id,
-
-        # 'd4t1':d4t1.id,
-        # 'd4t2':d4t2.id,
-        # 'd4t3':d4t3.id,
-
-        'day1': day1.id,
-        'day2': day2.id,
-        'day3': day3.id,
-        # 'day4': day4.id,
-
-    }
-
-    
-    
-    
-
-
-    # initial_fields = {
-
-    #     'd1':d1.id,
-    #     'd2':d2.id,
-    #     'd3':d3.id,
-    #     'd4':d4.id,
-    #     'd5':d5.id,
-
-    #     'd1t1':d1t1.id,
-    #     'd1t2':d1t2.id,
-    #     'd1t3':d1t3.id,
-
-    #     'd2t1':d2t1.id,
-    #     'd2t2':d2t2.id,
-    #     'd2t3':d2t3.id,
-
-    #     'd3t1':d3t1.id,
-    #     'd3t2':d3t2.id,
-    #     'd3t3':d3t3.id,
-
-    #     'd4t1':d4t1.id,
-    #     'd4t2':d4t2.id,
-    #     'd4t3':d4t3.id,
-
-    #     'day1': day1.id,
-    #     'day2': day2.id,
-    #     'day3': day3.id,
-    #     'day4': day4.id,
-
-    # }
 
 
     form = DesireFormUpdate(initial = initial_fields, instance = model_is)
@@ -400,9 +232,8 @@ def teacher_modify_page(request,pk):
             return redirect("summary_page")
         else:
             print(form.errors.as_data())
-    
-    # context = {'form':form, 'd4':d4}
-    context = {'form':form, 'd4t1':d4t1}
+
+    context = {'form':form}
     return render(request, 'base/teacher_modify_page.html', context)
 
 

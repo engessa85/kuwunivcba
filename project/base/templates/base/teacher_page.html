@@ -38,104 +38,34 @@
                 </div>
                 <div class = 'check-course'>
                     <label >Teach Extra Courses</label>
-                    <input type="checkbox" id="check-course" name="" value="">
+                    {{form.extra}}
                 </div>
                 <div class = "times-values">
                     <span>Time Preferences</span>
                     <div class = "times-values-desires">
 
                         <div class = "time-row">
-                            <span class = 'first'>1st desire</span>
-                            <span>
-                                <select name="d1t1" required id="id_d1t1">
-                                    <option value selected>-----------</option>
-                                  </select>
-                            </span>
-                            <span>
-                                <select name="d1t2" required id="id_d1t2">
-                                    <option value selected>-----------</option>
-                                  </select>
-                            </span>
-                            <span>
-                                <select name="d1t3" required id="id_d1t3">
-                                    <option value selected>-----------</option>
-                                  </select>
-                            </span>
-                            <span id = "day1_is">{{form.day1}}</span>
+                            <span class = 'first'>123 Preference</span>
+                            <div>
+                                <span>{{form.d1t1}}</span>
+                                <span>{{form.d1t2}}</span>
+                                <span>{{form.d1t3}}</span>
+                            </div>
                         </div>
-                        
-
-
                         <div class = "time-row">
-                            <span class = "second">2nd desire</span>
-                            <span>
-                                <select name="d2t1" required id="id_d2t1">
-                                    <option value selected>-----------</option>
-                                  </select>
-                            </span>
-                            <span>
-                                <select name="d2t2" required id="id_d2t2">
-                                    <option value selected>-----------</option>
-                                  </select>
-                            </span>
-                            <span>
-                                <select name="d2t3" required id="id_d2t3">
-                                    <option value selected>-----------</option>
-                                  </select>
-                            </span>
-                            <span id = "day2_is">{{form.day2}}</span>
+                            <span class = "second">24 Preference</span>
+                            <div>
+                                <span>{{form.d2t1}}</span>
+                                <span>{{form.d2t2}}</span>
+                                <span>{{form.d2t3}}</span>
+                            </div>
                         </div>
-
-
                         <div class = "time-row">
-                            <span class = "third">3rd desire</span>
-                            <span>
-                                <select name="d3t1" required id="id_d3t1">
-                                    <option value selected>-----------</option>
-                                  </select>
-                            </span>
-                            <span>
-                                <select name="d3t2" required id="id_d3t2">
-                                    <option value selected>-----------</option>
-                                  </select>
-                            </span>
-                            <span>
-                                <select name="d3t3" required id="id_d3t3">
-                                    <option value selected>-----------</option>
-                                  </select>
-                            </span>
-                            <span id = "day3_is">{{form.day3}}</span>
+                            <span class = "third">135 or/and 24 Preference</span>
+                            <span>{{form.d3t1}}</span>
+                            <span>{{form.d3t2}}</span>
+                            <span>{{form.d3t3}}</span>
                         </div>
-
-
-
-                        <div class = "time-row" id = "fourth-desire">
-                            <span class = "fourth">4th desire</span>
-                            <span>
-                                <select name="d4t1"  id="id_d4t1">
-                                    <option value selected>-----------</option>
-                                  </select>
-                            </span>
-                            <span>
-                                <select name="d4t2"  id="id_d4t2">
-                                    <option value selected>-----------</option>
-                                  </select>
-                            </span>
-                            <span>
-                                <select name="d4t3"  id="id_d4t3">
-                                    <option value selected>-----------</option>
-                                  </select>
-                            </span>
-                            <span id = "day4_is">{{form.day4}}</span>
-                        </div>
-
-                        {% comment %} <div class = "time-row" id = "fifth-desire">
-                            <span class = "fifth">5th desire</span>
-                            <span>{{form.d5t1}}</span>
-                            <span>{{form.d5t2}}</span>
-                            <span>{{form.d5t3}}</span>
-                            <span>{{form.day5}}</span>
-                        </div> {% endcomment %}
                     </div>
                 </div>
 
@@ -148,8 +78,7 @@
                 {% endfor %}
                 {% endif %}
                 </div>
-
-
+                
                 <div class="button">
                     <input type="submit" value="Submit">
                 </div>
@@ -157,6 +86,6 @@
         </div>
     </div>
 </div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-<script src="{% static 'styles/main.js' %}"></script>
+{% comment %} <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script src="{% static 'styles/main.js' %}"></script> {% endcomment %}
 {% endblock content %}
